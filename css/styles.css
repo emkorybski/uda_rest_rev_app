@@ -277,11 +277,28 @@ nav h1 a {
 
 /*
     Responsive display Media Queries
+
+    TODO: fix/populate lanscape and tablet/iPad media queries
 */
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-    /* Styles */
+    /* 
+        Listing page styles 
+    */
+    nav h1 a {
+        color: #fff;
+        font-size: 12pt;
+        font-weight: 400;
+        letter-spacing: 3px;
+        margin-left: -5px;
+    }
+
+    nav h1 {
+        text-align: center;
+        padding-top: 14pt;
+    }
+
     #restaurants-list {
         padding: 20px 5px 20px;
     }
@@ -319,6 +336,27 @@ nav h1 a {
         padding-top: 10px;
     }
 
+    /*
+        Restaurant view
+    */
+
+    .inside nav h1 a {
+        color: #fff;
+        font-size: 12pt;
+        font-weight: 400;
+        letter-spacing: 3px;
+        margin-left: -30px;
+    }
+
+    #breadcrumb {
+        padding: 10px 25px 12px;
+        list-style: none;
+        background-color: #eee;
+        font-size: 14px;
+        margin: 0;
+        width: 100%;
+    }
+
     #restaurants-list .restaurant-img {
         background-color: #ccc;
         display: block;
@@ -326,6 +364,69 @@ nav h1 a {
         max-width: 80%;
         min-height: 150px;
     }
+
+    .inside #map {
+        z-index: 500;
+    }
+    .inside #map-container {
+        background: blue none repeat scroll 0 0;
+        max-height: 150px;
+        position: absolute;
+        right: 0;
+        top: 120px;
+        width: 100%;
+    }
+
+    #restaurant-container {
+        border-bottom: 1px solid #d9d9d9;
+        border-top: 1px solid #fff;
+        padding: 280px 20px 20px;
+        width: 100%;
+    }
+
+    #reviews-container {
+        border-bottom: 1px solid #d9d9d9;
+        border-top: 1px solid #fff;
+        padding: 20px 5px 20px;
+        width: 100%;
+    }
+    #reviews-container h2 {
+        color: #f58500;
+        font-size: 14pt;
+        font-weight: 600;
+        letter-spacing: 1px;
+        padding-bottom: 1pt;
+        text-transform: uppercase; 
+        margin-left: 10px;
+    }
+
+    #restaurants-list li:last-child {
+        margin-bottom: 55px;
+    }
+    
+    #reviews-list li p {
+        margin: 10px 0 10px;
+ 
+    }
+    #reviews-list li p:first-child {
+        font-weight: bold;
+    }
+    #reviews-list li p:nth-child(3) {
+        font-style: italic;
+    }
+
+    #footer, .inside #footer {
+        padding: 10px 0 10px 0;
+        bottom: 0;
+        position: absolute;
+        width: 100%;
+        z-index: 250;
+    }
+    #footer a, .inside #footer a {
+        display: block
+    }
+    
+
 
 }
 
