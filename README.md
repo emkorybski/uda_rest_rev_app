@@ -1,14 +1,7 @@
-# Header 1
----
-#### _Three Stage Course Material Project - Restaurant Reviews_
 
-## Project Overview: Stage 1
 
-For the **Restaurant Reviews** app...
-
-### Specification
-
-Code modifications ...
+### Code modifications in detail
+...
 
 ### Instructions for running the application
 1. In this folder, start up a simple HTTP server to serve up the site files on your local computer. Python has some simple tools to do this, and you don't even need to know Python. For most people, it's already installed on your computer.
