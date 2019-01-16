@@ -30,3 +30,16 @@ self.addEventListener('install', function(event) {
         })
     );
 });
+
+// content from network falling back on cache
+self.addEventListener('fetch', function(event) {
+    event.respondWith(
+        fetch(event.request).catch(function() {
+            return caches.match(event.request);
+        })
+    );
+});
+
+/*
+* TODO: update create new cache and delete old one with each page load
+* */
