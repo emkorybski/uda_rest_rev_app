@@ -31,15 +31,50 @@ self.addEventListener('install', function(event) {
     );
 });
 
-// content from network falling back on cache
-self.addEventListener('fetch', function(event) {
-    event.respondWith(
-        fetch(event.request).catch(function() {
-            return caches.match(event.request);
-        })
+self.addEventListener('activate', function(event) {
+
+    var cacheName = 'default-app-cache';
+  
+    event.waitUntil(
+      caches.keys().then(function(cacheName) {
+        return Promise.all();
+      })
     );
-});
+  });
+  
 
 /*
 * TODO: update create new cache and delete old one with each page load
 * */
+
+self.addEventListener('fetch', function(event) {
+    event.respondWith(
+      caches.match(event.request)
+        .then(function(response) {
+          // Cache hit - return response
+          if (response) {
+            return response;
+          }
+  
+          return fetch(event.request).then(
+            function(response) {
+              // Check if we received a valid response
+              if(!response || response.status !== 200 || response.type !== 'basic') {
+                return response;
+              }
+  
+              // clone the response
+              var responseToCache = response.clone();
+  
+              caches.open('default-app-cache')
+                .then(function(cache) {
+                  cache.put(event.request, responseToCache);
+                });
+  
+              return response;
+            }
+          );
+        })
+      );
+  });
+  
