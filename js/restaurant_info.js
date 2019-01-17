@@ -30,10 +30,12 @@ initMap = () => {
         id: 'mapbox.streets'    
       }).addTo(newMap);
       fillBreadcrumb();
+      document.getElementById('map').setAttribute('aria-label', 'Map with ' + restaurant.name + ' location'); 
       DBHelper.mapMarkerForRestaurant(self.restaurant, self.newMap);
     }
   });
-}  
+} 
+
  
 /* window.initMap = () => {
   fetchRestaurantFromURL((error, restaurant) => {
